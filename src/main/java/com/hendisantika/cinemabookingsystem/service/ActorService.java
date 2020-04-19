@@ -1,9 +1,12 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.model.Actor;
 import com.hendisantika.cinemabookingsystem.repository.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,5 +26,13 @@ public class ActorService {
     @Autowired
     public ActorService(ActorRepository actorRepository) {
         this.actorRepository = actorRepository;
+    }
+
+    public void addActor(Actor actor) {
+        actorRepository.saveAndFlush(actor);
+    }
+
+    public List<Actor> getAllActors() {
+        return actorRepository.findAll();
     }
 }
