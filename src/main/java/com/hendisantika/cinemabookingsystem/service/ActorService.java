@@ -1,9 +1,13 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.exception.ResourceNotFoundException;
 import com.hendisantika.cinemabookingsystem.model.Actor;
 import com.hendisantika.cinemabookingsystem.repository.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,4 +39,15 @@ public class ActorService {
     public List<Actor> getAllActors() {
         return actorRepository.findAll();
     }
+
+    public Page<Actor> getAllActorsPage(Integer pageNumber) {
+        PageRequest request = PageRequest.of(pageNumber - 1, pageSize, Sort.Direction.ASC, "lastName");
+        return actorRepository.findAll(request);
+    }
+
+    public Actor getActorByID(Long id) {
+        return actorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Actor " +
+                "[ActorId=" + id + "] can't be found"));
+    }
+
 }
