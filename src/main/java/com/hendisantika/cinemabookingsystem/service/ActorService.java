@@ -50,4 +50,15 @@ public class ActorService {
                 "[ActorId=" + id + "] can't be found"));
     }
 
+    public void deleteActorByID(Long id) {
+        if (existActor(actorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Actor " +
+                "[ActorId=" + id + "] can't be found")))) {
+            actorRepository.deleteById(id);
+        }
+    }
+
+    private boolean existActor(Actor actor) {
+        return actorRepository.existsById(actor.getId());
+    }
+
 }
