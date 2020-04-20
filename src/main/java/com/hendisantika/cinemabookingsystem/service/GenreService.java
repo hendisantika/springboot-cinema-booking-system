@@ -34,4 +34,13 @@ public class GenreService {
         return genreRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Genre [genreId=" + id +
                 "] can't be found"));
     }
+
+    public void deleteGenreById(Long id) {
+        if (getGenreByID(id) != null)
+            genreRepository.deleteById(id);
+    }
+
+    public void addGenre(Genre genre) {
+        genreRepository.saveAndFlush(genre);
+    }
 }
