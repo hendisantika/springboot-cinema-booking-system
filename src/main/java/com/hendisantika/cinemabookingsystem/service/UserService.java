@@ -1,10 +1,13 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.model.User;
 import com.hendisantika.cinemabookingsystem.repository.TicketRepository;
 import com.hendisantika.cinemabookingsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,4 +33,13 @@ public class UserService {
         this.ticketRepository = ticketRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    public User findByUsername(String userName) {
+        return userRepository.findByUsername(userName);
+    }
+
 }
