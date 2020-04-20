@@ -34,4 +34,14 @@ public class DiscountService {
         return discountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Actor " +
                 "[cinemaId=" + id + "] can't be found"));
     }
+
+    public void deleteDiscountByID(Long id) {
+        if (getDiscountByID(id) != null) {
+            discountRepository.deleteById(id);
+        }
+    }
+
+    public void addDiscount(Discount discount) {
+        discountRepository.saveAndFlush(discount);
+    }
 }
