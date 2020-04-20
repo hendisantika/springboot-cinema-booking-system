@@ -1,9 +1,14 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.model.Ticket;
 import com.hendisantika.cinemabookingsystem.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,5 +28,14 @@ public class TicketService {
     @Autowired
     public TicketService(TicketRepository ticketRepository) {
         this.ticketRepository = ticketRepository;
+    }
+
+    public Page<Ticket> findAll(Integer pageNumber) {
+        PageRequest request = PageRequest.of(pageNumber - 1, pageSize);
+        return ticketRepository.findAll(request);
+    }
+
+    public List<Ticket> getAllTicket() {
+        return ticketRepository.findAll();
     }
 }
