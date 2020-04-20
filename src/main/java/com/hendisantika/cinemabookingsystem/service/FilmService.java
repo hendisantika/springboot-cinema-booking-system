@@ -1,8 +1,14 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.model.Film;
 import com.hendisantika.cinemabookingsystem.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,5 +28,14 @@ public class FilmService {
     @Autowired
     public FilmService(FilmRepository filmRepository) {
         this.filmRepository = filmRepository;
+    }
+
+    public List<Film> getAllFilms() {
+        return filmRepository.findAll();
+    }
+
+    public Page<Film> getAllFilmsPage(Integer pageNumber) {
+        PageRequest request = PageRequest.of(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title");
+        return filmRepository.findAll(request);
     }
 }
