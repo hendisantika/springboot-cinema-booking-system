@@ -1,5 +1,6 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.model.FilmSession;
 import com.hendisantika.cinemabookingsystem.repository.FilmSessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,4 +22,15 @@ public class FilmSessionService {
     public FilmSessionService(FilmSessionRepository filmSessionRepository) {
         this.filmSessionRepository = filmSessionRepository;
     }
+
+    public FilmSession addSession(FilmSession filmSession) {
+        return filmSessionRepository.saveAndFlush(filmSession);
+    }
+
+    public void deleteSessionById(Long id) {
+        if (getSessionById(id) != null) {
+            filmSessionRepository.deleteById(id);
+        }
+    }
+
 }
