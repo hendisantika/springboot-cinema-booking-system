@@ -33,4 +33,14 @@ public class HallService {
     public Hall getHallByID(Long hallId) {
         return hallRepository.findById(hallId).orElseThrow(() -> new ResourceNotFoundException("Hall [hallId=" + hallId + "] can't be found"));
     }
+
+    public void deleteHallByID(Long id) {
+        if (getHallByID(id) != null) {
+            hallRepository.deleteById(id);
+        }
+    }
+
+    public Hall addHall(Hall hall) {
+        return hallRepository.saveAndFlush(hall);
+    }
 }
