@@ -1,5 +1,6 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.exception.ResourceNotFoundException;
 import com.hendisantika.cinemabookingsystem.model.Film;
 import com.hendisantika.cinemabookingsystem.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,15 @@ public class FilmService {
     public Page<Film> getAllFilmsPage(Integer pageNumber) {
         PageRequest request = PageRequest.of(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title");
         return filmRepository.findAll(request);
+    }
+
+    public Film getFilmByID(Long id) {
+        return filmRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Actor " +
+                "[cinemaId=" + id + "] can't be found"));
+    }
+
+    public Page<Film> searchByTittle(String filmTittle, Integer pageNumber) {
+        PageRequest request = PageRequest.of(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title");
+        return filmRepository.findByTitleContaining(filmTittle, request);
     }
 }
