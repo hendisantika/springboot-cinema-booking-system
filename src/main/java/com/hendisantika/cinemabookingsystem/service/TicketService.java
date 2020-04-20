@@ -1,5 +1,6 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.exception.ResourceNotFoundException;
 import com.hendisantika.cinemabookingsystem.model.Ticket;
 import com.hendisantika.cinemabookingsystem.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,13 @@ public class TicketService {
 
     public List<Ticket> getAllTicket() {
         return ticketRepository.findAll();
+    }
+
+    public Ticket findById(Long id) {
+        return ticketRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Ticket [ticketId = " + id + "] can't be found"));
+    }
+
+    public void update(Ticket ticket) {
+        ticketRepository.save(ticket);
     }
 }
