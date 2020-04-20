@@ -1,8 +1,11 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.model.Row;
 import com.hendisantika.cinemabookingsystem.repository.RowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,5 +23,13 @@ public class RowService {
     @Autowired
     public RowService(RowRepository rowRepository) {
         this.rowRepository = rowRepository;
+    }
+
+    public Row addRow(Row row) {
+        return rowRepository.saveAndFlush(row);
+    }
+
+    public List<Row> getAllRow() {
+        return rowRepository.findAll();
     }
 }
