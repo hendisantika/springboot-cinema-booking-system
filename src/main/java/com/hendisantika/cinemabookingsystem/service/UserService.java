@@ -1,5 +1,6 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.exception.ResourceNotFoundException;
 import com.hendisantika.cinemabookingsystem.model.User;
 import com.hendisantika.cinemabookingsystem.repository.TicketRepository;
 import com.hendisantika.cinemabookingsystem.repository.UserRepository;
@@ -48,6 +49,16 @@ public class UserService {
 
     public User findByPhone(String phone) {
         return userRepository.findByPhone(phone);
+    }
+
+    public User findById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User [userId= " + id + "]" +
+                " can't be found"));
+    }
+
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+
     }
 
 }
