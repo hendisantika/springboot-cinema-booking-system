@@ -1,8 +1,12 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.exception.ResourceNotFoundException;
+import com.hendisantika.cinemabookingsystem.model.Discount;
 import com.hendisantika.cinemabookingsystem.repository.DiscountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,5 +24,14 @@ public class DiscountService {
     @Autowired
     public DiscountService(DiscountRepository discountRepository) {
         this.discountRepository = discountRepository;
+    }
+
+    public List<Discount> getAllDiscount() {
+        return discountRepository.findAll();
+    }
+
+    public Discount getDiscountByID(Long id) {
+        return discountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Actor " +
+                "[cinemaId=" + id + "] can't be found"));
     }
 }
