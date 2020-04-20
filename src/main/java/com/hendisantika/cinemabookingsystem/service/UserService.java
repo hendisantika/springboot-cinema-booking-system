@@ -58,7 +58,15 @@ public class UserService {
 
     public void delete(Long id) {
         userRepository.deleteById(id);
+    }
 
+    public void update(User user) {
+        userRepository.saveAndFlush(user);
+    }
+
+    public void add(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 
 }
