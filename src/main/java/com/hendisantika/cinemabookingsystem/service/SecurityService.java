@@ -1,0 +1,28 @@
+package com.hendisantika.cinemabookingsystem.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by IntelliJ IDEA.
+ * Project : cinema-booking-system
+ * User: hendisantika
+ * Email: hendisantika@gmail.com
+ * Telegram : @hendisantika34
+ * Date: 21/04/20
+ * Time: 06.07
+ */
+@Service
+public class SecurityService {
+    private final AuthenticationManager authenticationManager;
+
+    private final UserDetailsService userDetailsService;
+
+    @Autowired
+    public SecurityService(AuthenticationManager authenticationManager, UserDetailsService userDetailsService) {
+        this.authenticationManager = authenticationManager;
+        this.userDetailsService = userDetailsService;
+    }
+}
