@@ -49,4 +49,18 @@ public class FilmService {
         PageRequest request = PageRequest.of(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title");
         return filmRepository.findByTitleContaining(filmTittle, request);
     }
+
+    public List<Film> getLast() {
+        return filmRepository.findAll();
+    }
+
+    public Film addFilm(Film film) {
+        return filmRepository.saveAndFlush(film);
+    }
+
+    public void deleteFilmByID(Long id) {
+        if (getFilmByID(id) != null) {
+            filmRepository.deleteById(id);
+        }
+    }
 }
