@@ -42,4 +42,12 @@ public class UserService {
         return userRepository.findByUsername(userName);
     }
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public User findByPhone(String phone) {
+        return userRepository.findByPhone(phone);
+    }
+
 }
