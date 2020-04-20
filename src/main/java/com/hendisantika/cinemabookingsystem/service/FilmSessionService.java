@@ -1,9 +1,12 @@
 package com.hendisantika.cinemabookingsystem.service;
 
+import com.hendisantika.cinemabookingsystem.exception.ResourceNotFoundException;
 import com.hendisantika.cinemabookingsystem.model.FilmSession;
 import com.hendisantika.cinemabookingsystem.repository.FilmSessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,4 +36,12 @@ public class FilmSessionService {
         }
     }
 
+    public List<FilmSession> getAllSession() {
+        return filmSessionRepository.findAll();
+    }
+
+    public FilmSession getSessionById(Long id) {
+        return filmSessionRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Film Session " +
+                "[filmSessionId=" + id + "] can't be found"));
+    }
 }

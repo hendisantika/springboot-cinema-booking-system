@@ -57,7 +57,7 @@ public class CinemaService {
     }
 
     public Cinema getCinemaByID(Long id) {
-        return cinemaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Actor " +
+        return cinemaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cinema " +
                 "[cinemaId=" + id + "] can't be found"));
     }
 }
