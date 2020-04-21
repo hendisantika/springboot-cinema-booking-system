@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Регистрация</title>
+    <script src="/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+    <script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+    <script src="/js/validator.js" th:src="@{/js/validator.js}"></script>
+    <link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link href="/css/registration.css" rel="stylesheet" th:href="@{/css/registration.css}"/>
+    <link href="/favicon.ico" rel="icon" th:href="@{/favicon.ico}"/>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row main">
+        <div class="main-login main-center">
+            <form action="#" class="form-horizontal" data-toggle="validator" method="post" th:action="@{/registration}"
+                  th:object="${userForm}">
+                <div class="help-block" style="color: #ac2925" th:if="${#fields.hasErrors()}">Пользователь с таким
+                    логином уже существует
+                </div>
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label" for="name">Имя</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i aria-hidden="true" class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" id="name" maxlength="32" minlength="3"
+                                   name="name" pattern="[a-z, а-я, А-Я, A-Z]{1,20}" placeholder="Введите ваше имя"
+                                   required="required" th:field="*{firstName}"/>
+                        </div>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                    <div class="help-block">Символы русского или английского алфавита</div>
+                </div>
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label" for="name">Фамилия</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i aria-hidden="true" class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" id="lastName" maxlength="32" minlength="3"
+                                   name="name" pattern="[a-z, а-я, А-Я, A-Z]{1,}" placeholder="Введите вашу фамилию"
+                                   required="required"
+                                   th:field="*{lastName}"/>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label" for="name">Телефон</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i aria-hidden="true"
+                                   class="glyphicon glyphicon-earphone"></i></span>
+                            <input class="form-control" id="telephone" maxlength="13" minlength="13" name="name"
+                                   placeholder="Введите ваш телефон" required="required" th:field="*{telephone}"
+                                   type="text"
+                            />
+                        </div>
+                        <div class="help-block with-errors"></div>
+                        <div class="help-block">Формат номера: 380000000000</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label" for="email">Электронная почта</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i aria-hidden="true"
+                                                               class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" id="email" name="email"
+                                   placeholder="Введите адресс электронной почты" required="required"
+                                   th:field="*{email}" type="email"/>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label" for="username">Логин</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i aria-hidden="true" class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" id="username" maxlength="32" minlength="6" name="username"
+                                   pattern="[a-z,A-Z,0-9]{6,}" placeholder="Введите ваш никнейм" required="required"
+                                   th:field="*{username}"
+                                   type="text"/>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                        <div class="help-block">Минимум 6 символов</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label" for="password">Пароль</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                                <span class="input-group-addon"><i aria-hidden="true"
+                                                                   class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" id="password" maxlength="32" minlength="6"
+                                   name="password" placeholder="Введите ваш пароль" required="required"
+                                   th:field="*{password}"
+                                   type="password"/>
+
+                        </div>
+                        <div class="help-block with-errors"></div>
+                        <div class="help-block">Минимум 6 символов</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label" for="confirm">Подтвердите пароль</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                                <span class="input-group-addon"><i aria-hidden="true"
+                                                                   class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" data-match="#password" id="confirm" name="confirm"
+                                   placeholder="Подтвердите ваш пароль"
+                                   required="required" th:field="*{passwordConfirm}" type="password"/>
+
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
+                </div>
+                <div class="login-register">
+                    <a th:href="@{/login}">Войти</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/bootstrap.js" type="text/javascript"></script>
+</body>
+</html>
