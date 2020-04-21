@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Залы</title>
+    <meta content="width=device-width, initial-scale=2" name="viewport"/>
+    <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+    <script src="/public/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+    <script src="/public/js/validator.js" th:src="@{/js/validator.js}"></script>
+    <link href="/public/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link href="/public/favicon.ico" rel="icon" th:href="@{/favicon.ico}"/>
+    <style>
+        .navbar {
+            margin-bottom: 10px;
+            border-radius: 0;
+        }
+
+        .jumbotron {
+            margin-bottom: 0;
+        }
+    </style>
+    <script>
+        function rowClicked(value) {
+            location.href = "/hall?hallId=" + value;
+        }
+    </script>
+
+</head>
+<body>
+
+<header th:replace="layout :: header"></header>
+
+<div th:replace="layout :: nav"></div>
+
+<div class="container text-center">
+
+    <div align="center" class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Кинотеатр</th>
+                <th>Кинозал</th>
+                <th>Описание</th>
+                <th></th>
+
+            </tr>
+            </thead>
+            <th:block th:each="hall : ${halls}">
+                <tbody>
+                <td th:text="${hall.cinema.title}"></td>
+                <td th:text="${hall.title}"></td>
+                <td th:text="${hall.desctiption}"></td>
+                <td>
+                    <a th:href="@{/session(hallId = ${hall.hallId})}">
+                        <button class="btn btn-default" type="button">Сеансы</button>
+                    </a>
+                </td>
+                </tbody>
+            </th:block>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>
