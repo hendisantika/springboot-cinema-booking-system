@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Купить билеты</title>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=2" name="viewport"/>
+    <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+    <script src="/public/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+    <script src="/public/js/validator.js" th:src="@{/js/validator.js}"></script>
+    <link href="/public/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <style>
+        .navbar {
+            margin-bottom: 10px;
+            border-radius: 0;
+        }
+
+        .jumbotron {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<header th:replace="layout :: header"></header>
+
+<div th:replace="layout :: nav"></div>
+
+<div class="container text-center">
+
+    <form action="#" class="form-vertical" data-toggle="validator" method="post"
+          role="form"
+          th:action="@{/tickets}" th:object="${order}">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="form-group">
+                <div class="col-lg-12" th:each="row : ${allRow}">
+                    <div class="checkbox-inline" th:each="ticket: ${row.tickets}">
+                        <input th:field="*{tickets}"
+                               th:value="${ticket}"
+                               type="checkbox"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-lg-3">
+            <button class="btn btn-primary" type="submit">Купить билеты</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
