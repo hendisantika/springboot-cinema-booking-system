@@ -28,7 +28,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4RELEASE')
+    implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE')
+    // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
+    implementation ('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.4.1')
+// https://mvnrepository.com/artifact/io.github.jpenren/thymeleaf-spring-data-dialect
+    implementation ('io.github.jpenren:thymeleaf-spring-data-dialect:3.4.1')
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
