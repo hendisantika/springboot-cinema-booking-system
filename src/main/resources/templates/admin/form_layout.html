@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="actor">
+    <form action="#" class="form-vertical" data-toggle="validator" method="post" role="form"
+          th:action="@{/admin/add/actor}" th:object="${actor}">
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{actorId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Имя</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите имя пользователя" required="required"
+                       th:field="*{firstName}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Фамилия</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите фамилию пользователя" required="required"
+                       th:field="*{lastName}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Внести изменения</button>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="cinema">
+    <form action="#" class="form-vertical" data-toggle="validator" method="post" role="form"
+          th:action="@{/admin/add/cinema}" th:object="${cinema}">
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{cinemaId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Название</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите название кинотеатра" required="required"
+                       th:field="*{title}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Адрес</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите адрес кинотеатра" required="required"
+                       th:field="*{address}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Телефон</label>
+            <div class="col-sm-10">
+                <input class="form-control" data-maxlength="12"
+                       maxlength="12" minlength="12"
+                       placeholder="Введите телефон кинотеатра" required="required" th:field="*{phone}" type="number"/>
+                <div class="help-block with-errors"></div>
+                <div class="help-block">Формат номера: 380000000000</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Электронная почта</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите электронную почту кинотеатра"
+                       required="required" th:field="*{email}"
+                       type="email"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Внести изменения</button>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="discount">
+    <form action="#" class="form-vertical" data-toggle="validator" method="post" role="form"
+          th:action="@{/admin/add/discount}" th:object="${discount}">
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{discountId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Название</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите название скидки" required="required"
+                       th:field="*{title}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Описание</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите описание скидки" required="required"
+                       th:field="*{description}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Процент</label>
+            <div class="col-sm-10">
+                <input class="form-control" max="100"
+                       min="1" placeholder="Введите процент скидки" required="required" th:field="*{percent}"
+                       type="number"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Внести изменения</button>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="film">
+    <form action="#" class="form-vertical" data-toggle="validator" enctype="multipart/form-data" method="post"
+          role="form" th:action="@{/admin/add/film}" th:object="${film}">
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{filmId}"
+                   type="hidden"/>
+        </div>
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Название</label>
+                <input class="form-control" placeholder="Введите название фильма" required="required"
+                       th:field="*{title}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Описание</label>
+                <textarea class="form-control" maxlength="600" minlength="30"
+                          placeholder="Введите описание фильма" required="required" style="height: 150px"
+                          th:field="*{description}"
+                          type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Возрастное ограничение</label>
+                <input class="form-control" max="18"
+                       min="0" placeholder="Введите ограничение по возрасту" required="required"
+                       th:field="*{restriction}"
+                       type="number"/>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Длительность</label>
+                <input class="form-control" max="300"
+                       min="20" placeholder="Введите длительность фильма в минутах" required="required"
+                       th:field="*{duration}"
+                       type="number"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Год выпуска </label>
+                <input class="form-control" max="2017" min="1900" placeholder="Введите год выпуска фильма"
+                       required="required" th:field="*{year}" type="number"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Страна производства </label>
+                <input class="form-control" min="2" placeholder="Введите страну производства фильма"
+                       required="required" th:field="*{country}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Дата начала показа</label>
+                <input class="form-control" max="2018-01-01"
+                       min="2016-01-01" required="required" th:field="*{startFrom}" type="date"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+
+            <label class="btn btn-default btn-file">
+                Выбрать постер <input name="image" style="display: none;" type="file"/>
+            </label>
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Внести изменения</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="genre">
+    <form action="#" class="form-vertical" data-toggle="validator" method="post" role="form"
+          th:action="@{/admin/add/genre}" th:object="${genre}">
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{genreId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Название</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите название жанра" required="required"
+                       th:field="*{title}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Описание</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Введите описание жанра" required="required"
+                       th:field="*{description}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Добавить жанр</button>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="hall">
+    <form action="#" class="form-vertical" data-toggle="validator" method="post" role="form"
+          th:action="@{/admin/add/hall}" th:object="${hall}">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="sel1">Кинотеатр</label>
+            <select class="form-control" id="sel1" th:field="*{cinemaId}">
+                <option th:each="cinema : ${cinemas}"
+                        th:text="${ cinema.title}"
+                        th:value="${cinema.cinemaId}">
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Название</label>
+            <input class="form-control" placeholder="Введите название кинозала" required="required"
+                   th:field="*{title}" type="text"/>
+            <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Описание</label>
+            <input class="form-control" placeholder="Введите описание кинозала" required="required"
+                   th:field="*{desctiption}" type="text"/>
+            <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Добавить кинозал</button>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="row">
+    <form action="#" class="form-vertical" data-toggle="validator" method="post" role="form"
+          th:action="@{/admin/add/row}" th:object="${row}">
+        <div class="form-group">
+            <input class="form-control" th:field="*{hallId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{cinemaId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Номер</label>
+            <input class="form-control" min="1" placeholder="Введите номер ряда"
+                   required="required" th:field="*{rowIndex}" type="number"/>
+            <div class="help-block with-errors" style="color: #ac2925" th:if="${#fields.hasErrors('rowIndex')}">Такой
+                ряд уже
+                существует
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Количество мест</label>
+
+            <input class="form-control" max="100" min="1"
+                   placeholder="Введите количество мест" required="required" th:field="*{seats}" type="number"/>
+            <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Добавить ряд</button>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="user">
+    <form action="#" class="form-vertical" data-toggle="validator" method="post" role="form"
+          th:action="@{/admin/edit/user}" th:object="${user}">
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{userId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{discountId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{password}"
+                   type="hidden"/>
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Логин</label>
+                <input class="form-control" placeholder="Введите логин" required="required"
+                       th:field="*{username}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Имя</label>
+                <input class="form-control" placeholder="Введите имя" required="required"
+                       th:field="*{firstName}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Фамилия</label>
+                <input class="form-control" placeholder="Введите фамилию" required="required"
+                       th:field="*{lastName}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Телефон</label>
+                <input class="form-control" maxlength="13" minlength="13"
+                       placeholder="Введите номер телефона" required="required" th:field="*{telephone}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <input class="form-control" placeholder="Введите email" required="required"
+                       th:field="*{email}" type="text"/>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-inline" th:each="role : ${roles}">
+                    <input th:field="*{roles}"
+                           th:text="${role.name}"
+                           th:value="${role}" type="checkbox"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Внести изменения</button>
+        </div>
+
+    </form>
+</div>
+
+<div th:fragment="session">
+    <form action="#" class="form-vertical" data-toggle="validator" enctype="multipart/form-data" id="form"
+          method="post" role="form" th:action="@{/admin/add/session}" th:object="${filmSession}">
+
+        <div class="form-group">
+            <input class="form-control" th:field="*{filmSessionId}"
+                   type="hidden"/>
+        </div>
+
+        <div class="help-block" style="color: #ac2925" th:if="${#fields.hasErrors('Date')}">В это время уже проводится
+            сеанс
+        </div>
+
+        <div class="form-group">
+            <label for="sel2">Кинозал</label>
+            <select class="form-control" id="sel2" required="required" th:field="*{hallId}">
+                <option th:each="hall : ${allHalls}"
+                        th:text="${hall.title}"
+                        th:value="${hall.hallId}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sel1">Фильм</label>
+            <select class="form-control" id="sel1" required="required" th:field="*{filmId}">
+                <option th:each="film : ${allFilms}"
+                        th:text="${film.title}"
+                        th:value="${film.filmId}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" id="hiddenDate"
+                   th:field="*{date}" type="hidden"/>
+        </div>
+
+        <div class="form-group">
+            <label for="sel4">Дата</label>
+            <input class="form-control" id="sel4" max="2018-01-01"
+                   min="2016-12-21" oninput="deleteT()" placeholder="Введите дату и время сеанса" required="required"
+                   type="datetime-local"/>
+            <div class="help-block with-errors"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="sel5">Цена</label>
+            <input class="form-control" id="sel5" max="1000"
+                   min="0" name="price" placeholder="Введите цену билетов" required="required" type="number"/>
+            <div class="help-block with-errors"></div>
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Добавить сеанс</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
