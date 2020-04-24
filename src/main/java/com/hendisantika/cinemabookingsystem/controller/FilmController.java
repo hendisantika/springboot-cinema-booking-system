@@ -48,4 +48,12 @@ public class FilmController {
         model.addAttribute("films", filmService.getAllFilms());
         return "/film";
     }
+
+    @GetMapping(value = "/film", params = {"filmTittle"})
+    public String searchFilm(@RequestParam String filmTittle,
+                             @RequestParam(defaultValue = "1", required = false) Integer page, Model model) {
+        Page<Film> searchResult = filmService.searchByTittle(filmTittle, page);
+        model.addAttribute("allFilm", searchResult);
+        return "/film";
+    }
 }
