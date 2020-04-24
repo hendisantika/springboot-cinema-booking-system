@@ -71,4 +71,10 @@ public class ActorController {
         actorService.addActor(actor);
         return "redirect:/admin/actor";
     }
+
+    @GetMapping(value = "/details/actor")
+    public String getActor(@RequestParam Long actorId, Model model) {
+        model.addAttribute("actor", actorService.getActorByID(actorId));
+        return "/details/actor";
+    }
 }
