@@ -46,4 +46,10 @@ public class ActorController {
         actorService.deleteActorByID(actorId);
         return "redirect:/admin/actor";
     }
+
+    @GetMapping(value = "/admin/edit/actor", params = {"actorId"})
+    public String editActor(@RequestParam Long actorId, Model model) {
+        model.addAttribute("actor", actorService.getActorByID(actorId));
+        return "/admin/edit/actor";
+    }
 }
