@@ -88,4 +88,11 @@ public class FilmController {
         model.addAttribute("film", filmService.getFilmByID(filmId));
         return "/admin/edit/film";
     }
+
+    @GetMapping(value = "/admin/add/genre_to_film", params = {"filmId"})
+    public String addGenres(@RequestParam Long filmId, Model model) {
+        model.addAttribute("allGenres", genreService.getAllGenre());
+        model.addAttribute("film", filmService.getFilmByID(filmId));
+        return "/admin/add/genre_to_film";
+    }
 }
