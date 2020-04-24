@@ -3,6 +3,8 @@ package com.hendisantika.cinemabookingsystem.controller;
 import com.hendisantika.cinemabookingsystem.service.DiscountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,5 +23,11 @@ public class DiscountController {
     @Autowired
     public DiscountController(DiscountService discountService) {
         this.discountService = discountService;
+    }
+
+    @GetMapping(value = "/admin/discount")
+    public String allDiscount(Model model) {
+        model.addAttribute("discounts", discountService.getAllDiscount());
+        return "/admin/discount";
     }
 }
