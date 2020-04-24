@@ -1,10 +1,13 @@
 package com.hendisantika.cinemabookingsystem.controller;
 
+import com.hendisantika.cinemabookingsystem.model.Cinema;
 import com.hendisantika.cinemabookingsystem.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,6 +28,13 @@ public class CinemaController {
     public String allCinema(Model model) {
         model.addAttribute("cinemas", cinemaService.getAllCinemas());
         return "/admin/cinema";
+    }
+
+    @GetMapping(value = "/cinema")
+    public String allCinemaUser(@RequestParam(defaultValue = "1", required = false) Integer page, Model model) {
+        Page<Cinema> pages = cinemaService.getAllCinemaPage(page);
+        model.addAttribute("allCinema", pages);
+        return "/cinema";
     }
 
 }
