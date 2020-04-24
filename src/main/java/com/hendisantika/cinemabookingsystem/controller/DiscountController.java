@@ -30,4 +30,10 @@ public class DiscountController {
         model.addAttribute("discounts", discountService.getAllDiscount());
         return "/admin/discount";
     }
+
+    @GetMapping(value = "/discount")
+    public String allDiscountUser(Model model) {
+        model.addAttribute("discounts", discountService.getAllDiscount());
+        return "/discount";
+    }
 }
