@@ -70,4 +70,9 @@ public class HallController {
         return "/admin/edit/hall";
     }
 
+    @GetMapping(value = "/admin/delete/hall", params = {"hallId"})
+    public String deleteHall(@RequestParam Long hallId) {
+        hallService.deleteHallByID(hallId);
+        return "redirect:/admin/hall";
+    }
 }
