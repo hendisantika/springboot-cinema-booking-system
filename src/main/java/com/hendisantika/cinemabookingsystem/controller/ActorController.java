@@ -40,4 +40,10 @@ public class ActorController {
         model.addAttribute("allActor", pages);
         return "/actor";
     }
+
+    @GetMapping(value = "/admin/delete/actor")
+    public String deleteActor(@RequestParam Long actorId) {
+        actorService.deleteActorByID(actorId);
+        return "redirect:/admin/actor";
+    }
 }
