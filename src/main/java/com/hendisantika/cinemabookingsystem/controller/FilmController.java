@@ -117,4 +117,19 @@ public class FilmController {
         model.addAttribute("film", filmService.getFilmByID(filmId));
         return "/admin/add/actor_to_film";
     }
+
+    @PostMapping(value = "/admin/add/actor_to_film")
+    public String addActors(@Valid Film film, Model model, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "error";
+        }
+        filmService.addFilm(film);
+        return "redirect:/admin/film";
+    }
+
+    private void validateImage(MultipartFile image) {
+        if (!image.getContentType().equals("image/jpeg")) {
+            throw new RuntimeException("Only JPG images are accepted");
+        }
+    }
 }
