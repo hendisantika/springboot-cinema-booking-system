@@ -5,8 +5,12 @@ import com.hendisantika.cinemabookingsystem.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 /**
  * Created by IntelliJ IDEA.
@@ -55,5 +59,11 @@ public class GenreController {
     public String addGenre(Model model) {
         model.addAttribute("genre", new Genre());
         return "/admin/add/genre";
+    }
+
+    @PostMapping(value = "/admin/add/genre")
+    public String addGenre(@Valid Genre genre, BindingResult bindingResult, Model model) {
+        genreService.addGenre(genre);
+        return "redirect:/admin/genre";
     }
 }
