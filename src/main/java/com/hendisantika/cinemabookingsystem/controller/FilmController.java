@@ -76,4 +76,10 @@ public class FilmController {
 
         return "redirect:/admin/film";
     }
+
+    @GetMapping(value = "/admin/delete/film", params = {"filmId"})
+    public String deleteFilm(@RequestParam Long filmId, Model model) {
+        filmService.deleteFilmByID(filmId);
+        return "redirect:/admin/film";
+    }
 }
