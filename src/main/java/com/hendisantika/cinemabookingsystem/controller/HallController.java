@@ -1,5 +1,6 @@
 package com.hendisantika.cinemabookingsystem.controller;
 
+import com.hendisantika.cinemabookingsystem.model.Hall;
 import com.hendisantika.cinemabookingsystem.service.CinemaService;
 import com.hendisantika.cinemabookingsystem.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +35,18 @@ public class HallController {
         model.addAttribute("halls", hallService.getAllHall());
         return "/admin/hall";
     }
+
+    @GetMapping(value = "/hall")
+    public String allHallUser(Model model) {
+        model.addAttribute("halls", hallService.getAllHall());
+        return "/hall";
+    }
+
+    @GetMapping(value = "/admin/add/hall")
+    public String addHall(Model model) {
+        model.addAttribute("hall", new Hall());
+        model.addAttribute("cinemas", cinemaService.getAllCinemas());
+        return "/admin/add/hall";
+    }
+
 }
