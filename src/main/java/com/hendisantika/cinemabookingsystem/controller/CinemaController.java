@@ -37,4 +37,9 @@ public class CinemaController {
         return "/cinema";
     }
 
+    @GetMapping(value = "/admin/add/cinema")
+    public String addCinema(Model model) {
+        model.addAttribute("cinema", new Cinema());
+        return "/admin/add/cinema";
+    }
 }
