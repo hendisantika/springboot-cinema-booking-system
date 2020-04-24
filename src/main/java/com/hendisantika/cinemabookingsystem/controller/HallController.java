@@ -4,6 +4,8 @@ import com.hendisantika.cinemabookingsystem.service.CinemaService;
 import com.hendisantika.cinemabookingsystem.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,5 +27,11 @@ public class HallController {
     public HallController(CinemaService cinemaService, HallService hallService) {
         this.cinemaService = cinemaService;
         this.hallService = hallService;
+    }
+
+    @GetMapping(value = "/admin/hall")
+    public String allHall(Model model) {
+        model.addAttribute("halls", hallService.getAllHall());
+        return "/admin/hall";
     }
 }
