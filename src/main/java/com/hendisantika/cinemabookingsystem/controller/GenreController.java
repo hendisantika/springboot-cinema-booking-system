@@ -43,4 +43,10 @@ public class GenreController {
         genreService.deleteGenreById(genreId);
         return "redirect:/admin/genre";
     }
+
+    @GetMapping(value = "/admin/edit/genre", params = {"genreId"})
+    public String editGenre(@RequestParam Long genreId, Model model) {
+        model.addAttribute("genre", genreService.getGenreByID(genreId));
+        return "/admin/edit/genre";
+    }
 }
