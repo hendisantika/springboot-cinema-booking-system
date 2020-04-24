@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
  */
 @Value
 @Embeddable
-class Seat {
+public class Seat {
 
     @ManyToOne
     @JoinColumn(name = "row_id")
