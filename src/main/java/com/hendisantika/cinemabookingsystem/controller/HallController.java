@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -62,5 +63,11 @@ public class HallController {
         return "redirect:/admin/hall";
     }
 
+    @GetMapping(value = "/admin/edit/hall")
+    public String editHall(@RequestParam Long hallId, Model model) {
+        model.addAttribute("hall", hallService.getHallByID(hallId));
+        model.addAttribute("cinemas", cinemaService.getAllCinemas());
+        return "/admin/edit/hall";
+    }
 
 }
