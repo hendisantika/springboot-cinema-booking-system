@@ -43,4 +43,10 @@ public class DiscountController {
         model.addAttribute("discount", new Discount());
         return "/admin/add/discount";
     }
+
+    @PostMapping(value = "/admin/add/discount")
+    public String addDiscount(@Valid Discount discount, BindingResult bindingResult, Model model) {
+        discountService.addDiscount(discount);
+        return "redirect:/admin/discount";
+    }
 }
