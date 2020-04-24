@@ -52,4 +52,10 @@ public class CinemaController {
         cinemaService.addCinema(cinema);
         return "redirect:/admin/cinema";
     }
+
+    @GetMapping(value = "/admin/delete/cinema", params = {"cinemaId"})
+    public String deleteCinema(@RequestParam Long cinemaId, Model model) {
+        cinemaService.deleteCinemaByID(cinemaId);
+        return "redirect:/admin/cinema";
+    }
 }
