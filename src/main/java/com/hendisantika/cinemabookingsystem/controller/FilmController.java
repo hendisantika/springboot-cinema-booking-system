@@ -5,6 +5,8 @@ import com.hendisantika.cinemabookingsystem.service.FilmService;
 import com.hendisantika.cinemabookingsystem.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,4 +32,9 @@ public class FilmController {
         this.genreService = genreService;
     }
 
+    @GetMapping(value = "/admin/film")
+    public String allFilms(Model model) {
+        model.addAttribute("films", filmService.getAllFilms());
+        return "/admin/film";
+    }
 }
