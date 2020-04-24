@@ -95,4 +95,13 @@ public class FilmController {
         model.addAttribute("film", filmService.getFilmByID(filmId));
         return "/admin/add/genre_to_film";
     }
+
+    @PostMapping(value = "/admin/add/genre_to_film")
+    public String addGenres(@Valid Film film, Model model, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "error";
+        }
+        filmService.addFilm(film);
+        return "redirect:/admin/film";
+    }
 }
