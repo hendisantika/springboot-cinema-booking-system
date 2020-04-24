@@ -30,4 +30,10 @@ public class GenreController {
         model.addAttribute("genres", genreService.getAllGenre());
         return "/admin/genre";
     }
+
+    @GetMapping(value = "/genre")
+    public String allGenreUser(Model model) {
+        model.addAttribute("genres", genreService.getAllGenre());
+        return "/genre";
+    }
 }
