@@ -104,4 +104,10 @@ public class FilmController {
         filmService.addFilm(film);
         return "redirect:/admin/film";
     }
+
+    @GetMapping(value = "/details/film")
+    public String getFilm(@RequestParam Long filmId, Model model) {
+        model.addAttribute("film", filmService.getFilmByID(filmId));
+        return "/details/film";
+    }
 }
