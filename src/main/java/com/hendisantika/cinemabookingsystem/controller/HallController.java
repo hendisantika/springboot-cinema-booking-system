@@ -6,7 +6,11 @@ import com.hendisantika.cinemabookingsystem.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 /**
  * Created by IntelliJ IDEA.
@@ -48,5 +52,15 @@ public class HallController {
         model.addAttribute("cinemas", cinemaService.getAllCinemas());
         return "/admin/add/hall";
     }
+
+    @PostMapping(value = "/admin/add/hall")
+    public String addHall(@Valid Hall hall, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/admin/hall";
+        }
+        hallService.addHall(hall);
+        return "redirect:/admin/hall";
+    }
+
 
 }
