@@ -49,4 +49,10 @@ public class DiscountController {
         discountService.addDiscount(discount);
         return "redirect:/admin/discount";
     }
+
+    @GetMapping(value = "/admin/delete/discount", params = {"discountId"})
+    public String deleteDiscount(@RequestParam Long discountId, Model model) {
+        discountService.deleteDiscountByID(discountId);
+        return "redirect:/admin/discount";
+    }
 }
