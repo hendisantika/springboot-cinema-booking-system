@@ -110,4 +110,11 @@ public class FilmController {
         model.addAttribute("film", filmService.getFilmByID(filmId));
         return "/details/film";
     }
+
+    @GetMapping(value = "/admin/add/actor_to_film", params = {"filmId"})
+    public String addActors(@RequestParam Long filmId, Model model) {
+        model.addAttribute("allActors", actorService.getAllActors());
+        model.addAttribute("film", filmService.getFilmByID(filmId));
+        return "/admin/add/actor_to_film";
+    }
 }
