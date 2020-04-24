@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,5 +36,11 @@ public class GenreController {
     public String allGenreUser(Model model) {
         model.addAttribute("genres", genreService.getAllGenre());
         return "/genre";
+    }
+
+    @GetMapping(value = "/admin/delete/genre")
+    public String deleteGenre(@RequestParam Long genreId) {
+        genreService.deleteGenreById(genreId);
+        return "redirect:/admin/genre";
     }
 }
