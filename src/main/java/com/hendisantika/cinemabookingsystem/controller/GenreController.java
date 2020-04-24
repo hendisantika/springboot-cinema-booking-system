@@ -1,5 +1,6 @@
 package com.hendisantika.cinemabookingsystem.controller;
 
+import com.hendisantika.cinemabookingsystem.model.Genre;
 import com.hendisantika.cinemabookingsystem.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,5 +49,11 @@ public class GenreController {
     public String editGenre(@RequestParam Long genreId, Model model) {
         model.addAttribute("genre", genreService.getGenreByID(genreId));
         return "/admin/edit/genre";
+    }
+
+    @GetMapping(value = "/admin/add/genre")
+    public String addGenre(Model model) {
+        model.addAttribute("genre", new Genre());
+        return "/admin/add/genre";
     }
 }
