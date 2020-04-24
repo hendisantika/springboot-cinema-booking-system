@@ -52,4 +52,10 @@ public class ActorController {
         model.addAttribute("actor", actorService.getActorByID(actorId));
         return "/admin/edit/actor";
     }
+
+    @GetMapping(value = "/admin/add/actor")
+    public String addActor(Model model) {
+        model.addAttribute("actor", new Actor());
+        return "/admin/add/actor";
+    }
 }
