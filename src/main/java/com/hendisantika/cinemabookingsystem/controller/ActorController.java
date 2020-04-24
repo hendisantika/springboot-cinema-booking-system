@@ -6,8 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 /**
  * Created by IntelliJ IDEA.
@@ -54,8 +58,17 @@ public class ActorController {
     }
 
     @GetMapping(value = "/admin/add/actor")
-    public String addActor(Model model) {
+    public String addActorForm(Model model) {
         model.addAttribute("actor", new Actor());
         return "/admin/add/actor";
+    }
+
+    @PostMapping(value = "/admin/add/actor")
+    public String addActor(@Valid Actor actor, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "error";
+        }
+        actorService.addActor(actor);
+        return "redirect:/admin/actor";
     }
 }
