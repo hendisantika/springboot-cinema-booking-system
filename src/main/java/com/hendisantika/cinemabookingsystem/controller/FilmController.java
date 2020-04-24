@@ -56,4 +56,10 @@ public class FilmController {
         model.addAttribute("allFilm", searchResult);
         return "/film";
     }
+
+    @GetMapping(value = "/admin/add/film")
+    public String addFilm(Model model) {
+        model.addAttribute("film", new Film());
+        return "/admin/add/film";
+    }
 }
