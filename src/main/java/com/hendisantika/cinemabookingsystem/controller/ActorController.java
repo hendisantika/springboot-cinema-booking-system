@@ -3,6 +3,8 @@ package com.hendisantika.cinemabookingsystem.controller;
 import com.hendisantika.cinemabookingsystem.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,5 +23,11 @@ public class ActorController {
     @Autowired
     public ActorController(ActorService actorService) {
         this.actorService = actorService;
+    }
+
+    @GetMapping(value = "/admin/actor")
+    public String allActor(Model model) {
+        model.addAttribute("actors", actorService.getAllActors());
+        return "/admin/actor";
     }
 }
