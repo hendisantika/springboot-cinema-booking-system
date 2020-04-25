@@ -1,5 +1,6 @@
 package com.hendisantika.cinemabookingsystem.controller;
 
+import com.hendisantika.cinemabookingsystem.model.FilmSession;
 import com.hendisantika.cinemabookingsystem.service.CinemaService;
 import com.hendisantika.cinemabookingsystem.service.FilmService;
 import com.hendisantika.cinemabookingsystem.service.FilmSessionService;
@@ -7,6 +8,9 @@ import com.hendisantika.cinemabookingsystem.service.HallService;
 import com.hendisantika.cinemabookingsystem.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by IntelliJ IDEA.
@@ -37,4 +41,16 @@ public class SessionController {
         this.hallService = hallService;
         this.ticketService = ticketService;
     }
+
+    @GetMapping(value = "/admin/add/session", params = {"cinemaId"})
+    public String addSession(@RequestParam Long cinemaId, Model model) {
+        FilmSession filmSession = new FilmSession();
+        model.addAttribute("filmSessionId", filmSession.getId());
+        model.addAttribute("filmSession", filmSession);
+        model.addAttribute("cinemaId", cinemaId);
+        model.addAttribute("allHalls", cinemaService.getCinemaByID(cinemaId).getHalls());
+        model.addAttribute("allFilms", filmService.getAllFilms());
+        return "/admin/add/session";
+    }
+
 }
