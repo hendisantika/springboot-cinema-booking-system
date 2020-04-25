@@ -79,4 +79,9 @@ public class SessionController {
         return "/admin/edit/session";
     }
 
+    @GetMapping(value = "/admin/delete/session")
+    public String deleteSession(@RequestParam Long filmSessionId, Model model) {
+        filmSessionService.deleteSessionById(filmSessionId);
+        return "redirect:/admin/session";
+    }
 }
