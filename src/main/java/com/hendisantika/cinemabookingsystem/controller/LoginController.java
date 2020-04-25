@@ -38,4 +38,10 @@ public class LoginController {
         return "/admin/index";
     }
 
+    @GetMapping(value = "/")
+    public String indexUser(Model model) {
+        model.addAttribute("films", filmService.getLast());
+        return "/index";
+    }
+
 }
