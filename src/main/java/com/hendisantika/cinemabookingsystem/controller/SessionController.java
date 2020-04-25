@@ -96,4 +96,9 @@ public class SessionController {
         model.addAttribute("sessions", filmSessionService.getAllSession());
         return "/admin/session";
     }
+
+    @GetMapping(value = "/session", params = {"cinemaId"})
+    public String allSessionByCinemaUser(@RequestParam Long cinemaId, Model model) {
+        return "/session";
+    }
 }
