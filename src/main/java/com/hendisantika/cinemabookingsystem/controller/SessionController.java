@@ -101,4 +101,9 @@ public class SessionController {
     public String allSessionByCinemaUser(@RequestParam Long cinemaId, Model model) {
         return "/session";
     }
+
+    @GetMapping(value = "/session", params = {"hallId"})
+    public String allSessionByHallUser(@RequestParam Long hallId, Model model) {
+        return "/session";
+    }
 }
