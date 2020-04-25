@@ -5,6 +5,8 @@ import com.hendisantika.cinemabookingsystem.service.SecurityService;
 import com.hendisantika.cinemabookingsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,4 +32,10 @@ public class LoginController {
         this.securityService = securityService;
         this.filmService = filmService;
     }
+
+    @GetMapping(value = "/admin/")
+    public String index(Model model) {
+        return "/admin/index";
+    }
+
 }
