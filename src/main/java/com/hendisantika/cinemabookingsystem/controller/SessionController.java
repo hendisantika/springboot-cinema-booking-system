@@ -117,4 +117,10 @@ public class SessionController {
         model.addAttribute("sessions", filmSessionService.getAllSession());
         return "/session";
     }
+
+    @GetMapping(value = "/details/session")
+    public String getSession(@RequestParam Long sessionId, Model model) {
+        model.addAttribute("filmSession", filmSessionService.getSessionById(sessionId));
+        return "/details/session";
+    }
 }
