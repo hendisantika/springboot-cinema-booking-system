@@ -55,4 +55,10 @@ public class LoginController {
         return "/login";
     }
 
+    @GetMapping(value = "/registration")
+    public String registration(Model model) {
+        model.addAttribute("userForm", new User());
+        return "/registration";
+    }
+
 }
