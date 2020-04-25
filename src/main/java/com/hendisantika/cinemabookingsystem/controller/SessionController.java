@@ -53,4 +53,17 @@ public class SessionController {
         return "/admin/add/session";
     }
 
+    @PostMapping(value = "/admin/add/session")
+    public String addSession(@Valid FilmSession filmSession, @RequestParam("price") int price,
+                             BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("allFilms", filmService.getAllFilms());
+            model.addAttribute("price", price);
+            return "/admin/add/session";
+        }
+        filmSession = filmSessionService.addSession(filmSession);
+        return "redirect:/admin/session/";
+    }
+
 }
