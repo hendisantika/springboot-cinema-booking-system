@@ -1,10 +1,17 @@
 package com.hendisantika.cinemabookingsystem.controller;
 
+import com.hendisantika.cinemabookingsystem.model.Hall;
+import com.hendisantika.cinemabookingsystem.model.Row;
 import com.hendisantika.cinemabookingsystem.service.CinemaService;
 import com.hendisantika.cinemabookingsystem.service.HallService;
 import com.hendisantika.cinemabookingsystem.service.RowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import static com.hendisantika.cinemabookingsystem.util.EntityUtils.getDummyEntityById;
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,5 +35,13 @@ public class RowController {
         this.rowService = rowService;
         this.cinemaService = cinemaService;
         this.hallService = hallService;
+    }
+
+    @GetMapping("/admin/add/row")
+    public String addRow(Model model, @RequestParam Long hallId) {
+        Row row = new Row();
+        row.setHall(getDummyEntityById(hallId, Hall.class));
+        model.addAttribute("row", row);
+        return "/admin/add/row";
     }
 }
