@@ -90,4 +90,10 @@ public class SessionController {
         model.addAttribute("cinemaId", cinemaId);
         return "/admin/session";
     }
+
+    @GetMapping(value = "/admin/session")
+    public String allSession(Model model) {
+        model.addAttribute("sessions", filmSessionService.getAllSession());
+        return "/admin/session";
+    }
 }
