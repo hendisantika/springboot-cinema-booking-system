@@ -29,4 +29,10 @@ public class TicketController {
         this.rowService = rowService;
     }
 
+    @GetMapping(value = "/admin/edit/ticket", params = {"ticketId"})
+    public String editTicket(@RequestParam Long ticketId, Model model) {
+        model.addAttribute("ticket", ticketService.findById(ticketId));
+        return "/admin/edit/ticket";
+    }
+
 }
