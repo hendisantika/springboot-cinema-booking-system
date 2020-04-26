@@ -48,4 +48,10 @@ public class UserController {
         userService.update(user);
         return "redirect:/admin/user";
     }
+
+    @GetMapping(value = "/admin/delete/user")
+    public String deleteUser(@RequestParam Long userId, Model model) {
+        userService.delete(userId);
+        return "redirect:/admin/user";
+    }
 }
