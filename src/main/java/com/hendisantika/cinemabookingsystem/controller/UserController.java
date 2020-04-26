@@ -33,4 +33,10 @@ public class UserController {
         model.addAttribute("users", userService.findAll());
         return "/admin/user";
     }
+
+    @GetMapping(value = "/admin/edit/user", params = {"userId"})
+    public String getUserEdit(@RequestParam Long userId, Model model) {
+        model.addAttribute("user", userService.findById(userId));
+        return "/admin/edit/user";
+    }
 }
