@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by IntelliJ IDEA.
@@ -61,5 +62,25 @@ public class UserController {
         model.addAttribute("allDiscounts", discountService.getAllDiscount());
         model.addAttribute("discount", new Discount());
         return "/user";
+    }
+
+    @PostMapping(value = "/user/discount")
+    public String addUserDiscount(@Valid Discount discount, Model model, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "/user?error";
+        User user = userService.findByUsername(getPrincipal());
+        userService.update(user);
+        return "redirect:/user";
+    }
+
+    private String getPrincipal() {
+        String userName;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            userName = ((UserDetails) principal).getUsername();
+        } else {
+            userName = principal.toString();
+        }
+        return userName;
     }
 }
