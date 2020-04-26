@@ -39,4 +39,13 @@ public class UserController {
         model.addAttribute("user", userService.findById(userId));
         return "/admin/edit/user";
     }
+
+    @PostMapping(value = "/admin/edit/user")
+    public String editUser(@Valid User user, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/admin/user";
+        }
+        userService.update(user);
+        return "redirect:/admin/user";
+    }
 }
