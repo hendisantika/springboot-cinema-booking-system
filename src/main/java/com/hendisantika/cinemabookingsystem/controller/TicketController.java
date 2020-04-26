@@ -51,4 +51,11 @@ public class TicketController {
         ticketService.update(ticket);
         return "redirect:/admin/ticket";
     }
+
+    @GetMapping(value = "/admin/ticket")
+    public String allTicket(@RequestParam(required = false, defaultValue = "1") Integer page, Model model) {
+        Page<Ticket> pages = ticketService.findAll(page);
+        model.addAttribute("allTickets", pages);
+        return "/admin/ticket";
+    }
 }
