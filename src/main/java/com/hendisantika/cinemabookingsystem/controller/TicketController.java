@@ -58,4 +58,21 @@ public class TicketController {
         model.addAttribute("allTickets", pages);
         return "/admin/ticket";
     }
+
+    @GetMapping(value = "/tickets")
+    public String allTicketBySession(@RequestParam Long filmSessionId, Model model) {
+        model.addAttribute("tickets", new ArrayList<Integer>());
+        return "/tickets";
+    }
+
+    private String getPrincipal() {
+        String userName;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            userName = ((UserDetails) principal).getUsername();
+        } else {
+            userName = principal.toString();
+        }
+        return userName;
+    }
 }
