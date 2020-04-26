@@ -54,4 +54,12 @@ public class UserController {
         userService.delete(userId);
         return "redirect:/admin/user";
     }
+
+    @GetMapping(value = "/user")
+    public String getUserDetails(Model model) {
+        model.addAttribute("user", userService.findByUsername(getPrincipal()));
+        model.addAttribute("allDiscounts", discountService.getAllDiscount());
+        model.addAttribute("discount", new Discount());
+        return "/user";
+    }
 }
