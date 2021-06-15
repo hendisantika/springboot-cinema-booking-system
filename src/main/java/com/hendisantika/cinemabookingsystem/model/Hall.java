@@ -1,6 +1,5 @@
 package com.hendisantika.cinemabookingsystem.model;
 
-import com.sun.rowset.internal.Row;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

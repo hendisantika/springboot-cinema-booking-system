@@ -2,7 +2,6 @@ package com.hendisantika.cinemabookingsystem.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import sun.security.krb5.internal.Ticket;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
