@@ -23,7 +23,7 @@
 
 <div class="jumbotron" th:fragment="header">
     <div class="container text-center">
-        <h3>Онлайн покупка билетов в кинотеатр</h3>
+        <h3>Online purchase of cinema tickets</h3>
     </div>
 </div>
 
@@ -35,19 +35,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" th:href="@{/}">Главная</a>
+            <a class="navbar-brand" href="/" th:href="@{/}">the main</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="cinema.html" th:href="@{/cinema}">Кинотеатры </a></li>
-                <li><a href="film.html" th:href="@{/film}"> Фильмы </a></li>
-                <li><a href="discount.html" th:href="@{/discount}">Скидки </a></li>
-                <li><a href="actor.html" th:href="@{/actor}">Актеры</a></li>
+                <li><a href="cinema.html" th:href="@{/cinema}">Cinemas </a></li>
+                <li><a href="film.html" th:href="@{/film}"> Films </a></li>
+                <li><a href="discount.html" th:href="@{/discount}">Discounts </a></li>
+                <li><a href="actor.html" th:href="@{/actor}">Actors</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/user}"><span
-                        class="glyphicon glyphicon-user"></span> Ваш аккаунт</a></li>
+                        class="glyphicon glyphicon-user"></span> Your account</a></li>
                 <li sec:authorize="isAuthenticated()">
                     <form id="logoutForm" method="post" th:action="@{/logout}">
                         <input th:name="${_csrf.parameterName }" th:value="${_csrf.getToken()}" type="hidden"/>
@@ -57,9 +57,9 @@
                     ></span> Выход</a>
                 </li>
                 <li sec:authorize="isAnonymous()"><a th:href="@{/login}"><span class="glyphicon glyphicon-user"></span>
-                    Войти</a></li>
+                    To come in</a></li>
                 <li sec:authorize="isAnonymous()"><a th:href="@{/registration}"><span
-                        class="glyphicon glyphicon-user"></span> Регистрация</a></li>
+                        class="glyphicon glyphicon-user"></span> check in</a></li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/admin/}"><span
                         class="glyphicon glyphicon-user"></span> Admin panel</a></li>
             </ul>

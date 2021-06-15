@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Авторизация</title>
+    <title>Authorization</title>
     <script>
         $('.message a').click(function () {
             $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
@@ -15,12 +15,12 @@
 <div class="login-page">
     <div class="form">
         <form class="login-form" data-toggle="validator" method="post" th:action="@{/login}">
-            <div class="help-block" style="color: #ac2925" th:if="${error}!= null">Неправильный логин/пароль</div>
+            <div class="help-block" style="color: #ac2925" th:if="${error}!= null">Invalid username / password</div>
             <input name="username" placeholder="Логин" required="required" type="text"/>
             <input name="password" placeholder="Пароль" required="required" type="password"/>
             <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
             <button class=" btn btn-lg btn-primary btn-block">Войти</button>
-            <p class="message"><a th:href="@{/registration}">Зарегистрироваться</a></p>
+            <p class="message"><a th:href="@{/registration}">Register now</a></p>
         </form>
     </div>
 </div>

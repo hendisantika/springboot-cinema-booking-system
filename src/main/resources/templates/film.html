@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Фильмы</title>
+    <title>Films</title>
     <meta content="width=device-width, initial-scale=2" name="viewport"/>
     <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
     <script src="/public/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
@@ -38,7 +38,7 @@
         <form method="get" th:action="@{/film}">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <input class="form-control input-lg" name="filmTittle" placeholder="Поиск по названию" type="text"/>
+                    <input class="form-control input-lg" name="filmTittle" placeholder="Search by name" type="text"/>
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="button">
                             <i class="glyphicon glyphicon-search"></i>
@@ -55,12 +55,12 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Название</th>
-                <th>Длительность</th>
-                <th>Год выпуска</th>
-                <th>Страна производства</th>
-                <th>Возрастное ограничение</th>
-                <th>Премьера</th>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Year of issue</th>
+                <th>Country of Origin</th>
+                <th>Age limit</th>
+                <th>Premiere</th>
                 <th></th>
 
             </tr>
