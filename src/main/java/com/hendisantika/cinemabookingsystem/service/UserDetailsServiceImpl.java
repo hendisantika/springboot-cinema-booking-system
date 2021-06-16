@@ -2,6 +2,7 @@ package com.hendisantika.cinemabookingsystem.service;
 
 import com.hendisantika.cinemabookingsystem.model.User;
 import com.hendisantika.cinemabookingsystem.repository.UserRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Date: 21/04/20
  * Time: 06.11
  */
+@Log4j2
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -31,6 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        log.info("Load user by username: {}", username);
         User user = userRepository.findByUsername(username);
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), null);
     }

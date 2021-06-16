@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import java.util.Set;
 
 /**
@@ -32,6 +33,9 @@ public class User extends BaseEntity {
     private String phone;
 
     private String password;
+
+    @Transient
+    private String passwordConfirm;
 
     private String email;
 

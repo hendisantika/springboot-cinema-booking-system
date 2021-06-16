@@ -62,7 +62,7 @@ public class LoginController {
     @GetMapping(value = "/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
-        return "/registration";
+        return "registration";
     }
 
     @PostMapping(value = "/registration")
