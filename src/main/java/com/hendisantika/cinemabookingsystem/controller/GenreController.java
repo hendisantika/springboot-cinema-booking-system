@@ -2,15 +2,14 @@ package com.hendisantika.cinemabookingsystem.controller;
 
 import com.hendisantika.cinemabookingsystem.model.Genre;
 import com.hendisantika.cinemabookingsystem.service.GenreService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,14 +21,10 @@ import javax.validation.Valid;
  * Time: 05.25
  */
 @Controller
+@RequiredArgsConstructor
 public class GenreController {
 
     private final GenreService genreService;
-
-    @Autowired
-    public GenreController(GenreService genreService) {
-        this.genreService = genreService;
-    }
 
     @GetMapping(value = "/admin/genre")
     public String allGenre(Model model) {

@@ -4,7 +4,8 @@ import com.hendisantika.cinemabookingsystem.model.Discount;
 import com.hendisantika.cinemabookingsystem.model.User;
 import com.hendisantika.cinemabookingsystem.service.DiscountService;
 import com.hendisantika.cinemabookingsystem.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -13,8 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,16 +25,11 @@ import javax.validation.Valid;
  * Time: 04.12
  */
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
     private final DiscountService discountService;
-
-    @Autowired
-    public UserController(UserService userService, DiscountService discountService) {
-        this.userService = userService;
-        this.discountService = discountService;
-    }
 
     @GetMapping(value = "/admin/user")
     public String allUser(Model model) {

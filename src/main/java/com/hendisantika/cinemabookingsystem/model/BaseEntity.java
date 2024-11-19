@@ -1,10 +1,9 @@
 package com.hendisantika.cinemabookingsystem.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
 /**
  * Created by IntelliJ IDEA.

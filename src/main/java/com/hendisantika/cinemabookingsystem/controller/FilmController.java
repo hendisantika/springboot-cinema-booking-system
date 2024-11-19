@@ -4,7 +4,8 @@ import com.hendisantika.cinemabookingsystem.model.Film;
 import com.hendisantika.cinemabookingsystem.service.ActorService;
 import com.hendisantika.cinemabookingsystem.service.FilmService;
 import com.hendisantika.cinemabookingsystem.service.GenreService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.Valid;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,19 +25,13 @@ import javax.validation.Valid;
  * Time: 05.16
  */
 @Controller
+@RequiredArgsConstructor
 public class FilmController {
     private final FilmService filmService;
 
     private final ActorService actorService;
 
     private final GenreService genreService;
-
-    @Autowired
-    public FilmController(FilmService filmService, ActorService actorService, GenreService genreService) {
-        this.filmService = filmService;
-        this.actorService = actorService;
-        this.genreService = genreService;
-    }
 
     @GetMapping(value = "/admin/film")
     public String allFilms(Model model) {

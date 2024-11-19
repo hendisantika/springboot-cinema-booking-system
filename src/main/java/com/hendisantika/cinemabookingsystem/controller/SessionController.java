@@ -6,15 +6,14 @@ import com.hendisantika.cinemabookingsystem.service.FilmService;
 import com.hendisantika.cinemabookingsystem.service.FilmSessionService;
 import com.hendisantika.cinemabookingsystem.service.HallService;
 import com.hendisantika.cinemabookingsystem.service.TicketService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,6 +25,7 @@ import javax.validation.Valid;
  * Time: 04.16
  */
 @Controller
+@RequiredArgsConstructor
 public class SessionController {
 
     private final FilmSessionService filmSessionService;
@@ -33,18 +33,6 @@ public class SessionController {
     private final CinemaService cinemaService;
     private final HallService hallService;
     private final TicketService ticketService;
-
-
-    @Autowired
-    public SessionController(FilmSessionService filmSessionService, FilmService filmService,
-                             CinemaService cinemaService, HallService hallService,
-                             TicketService ticketService) {
-        this.filmSessionService = filmSessionService;
-        this.filmService = filmService;
-        this.cinemaService = cinemaService;
-        this.hallService = hallService;
-        this.ticketService = ticketService;
-    }
 
     @GetMapping(value = "/admin/add/session", params = {"cinemaId"})
     public String addSession(@RequestParam Long cinemaId, Model model) {

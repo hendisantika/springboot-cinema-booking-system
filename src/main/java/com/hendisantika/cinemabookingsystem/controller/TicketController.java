@@ -4,6 +4,7 @@ import com.hendisantika.cinemabookingsystem.model.Ticket;
 import com.hendisantika.cinemabookingsystem.service.RowService;
 import com.hendisantika.cinemabookingsystem.service.TicketService;
 import com.hendisantika.cinemabookingsystem.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 
 /**

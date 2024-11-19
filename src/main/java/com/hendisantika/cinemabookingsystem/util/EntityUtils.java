@@ -1,9 +1,9 @@
 package com.hendisantika.cinemabookingsystem.util;
 
 import com.hendisantika.cinemabookingsystem.model.BaseEntity;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.experimental.UtilityClass;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 /**

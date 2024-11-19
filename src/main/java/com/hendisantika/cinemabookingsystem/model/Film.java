@@ -1,11 +1,11 @@
 package com.hendisantika.cinemabookingsystem.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import java.time.LocalDate;
 import java.util.Set;
 

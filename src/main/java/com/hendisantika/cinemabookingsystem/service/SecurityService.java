@@ -1,6 +1,6 @@
 package com.hendisantika.cinemabookingsystem.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,16 +18,17 @@ import org.springframework.stereotype.Service;
  * Time: 06.07
  */
 @Service
+@RequiredArgsConstructor
 public class SecurityService {
     private final AuthenticationManager authenticationManager;
 
     private final UserDetailsService userDetailsService;
 
-    @Autowired
-    public SecurityService(AuthenticationManager authenticationManager, UserDetailsService userDetailsService) {
-        this.authenticationManager = authenticationManager;
-        this.userDetailsService = userDetailsService;
-    }
+//    @Autowired
+//    public SecurityService(AuthenticationManager authenticationManager, UserDetailsService userDetailsService) {
+//        this.authenticationManager = authenticationManager;
+//        this.userDetailsService = userDetailsService;
+//    }
 
     public void autoLogin(String username, String password) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
