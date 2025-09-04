@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:9.1.0
+    image: mysql:9.4.0
     restart: always
     environment:
       MYSQL_DATABASE: 'cinema_db'
@@ -8,7 +8,7 @@ services:
       MYSQL_USER: 'yuji'
       MYSQL_PASSWORD: '53cret'
     ports:
-      - '3306:3306'
+      - '3307:3306'
     expose:
       - '3306'
     volumes:
