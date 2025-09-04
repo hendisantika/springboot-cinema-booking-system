@@ -1,7 +1,5 @@
 package com.hendisantika.cinemabookingsystem.config;
 
-import com.hendisantika.cinemabookingsystem.repository.UserRepository;
-import com.hendisantika.cinemabookingsystem.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,18 +28,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class WebSecurityConfig {
 
     private final UserDetailsService userDetailsService;
-
-    private final UserRepository userRepository;
-
-//    @Autowired
-//    public WebSecurityConfig(UserDetailsService userDetailsService) {
-//        this.userDetailsService = userDetailsService;
-//    }
-
-//    @Bean
-//    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -78,15 +64,10 @@ public class WebSecurityConfig {
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
-        authProvider.setUserDetailsService(userDetailsServiceBean());
+        authProvider.setUserDetailsService(userDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
-    }
-
-    @Bean
-    public UserDetailsService userDetailsServiceBean() {
-        return new UserDetailsServiceImpl(userRepository);
     }
 
     @Bean
