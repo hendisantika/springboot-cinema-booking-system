@@ -12,25 +12,25 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Имя</label>
+            <label class="col-sm-2 control-label">First Name</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите имя пользователя" required="required"
+                <input class="form-control" placeholder="Enter first name" required="required"
                        th:field="*{firstName}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Фамилия</label>
+            <label class="col-sm-2 control-label">Last Name</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите фамилию пользователя" required="required"
+                <input class="form-control" placeholder="Enter last name" required="required"
                        th:field="*{lastName}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Внести изменения</button>
+            <button class="btn btn-primary" type="submit">Apply Changes</button>
         </div>
     </form>
 </div>
@@ -45,38 +45,38 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Название</label>
+            <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите название кинотеатра" required="required"
+                <input class="form-control" placeholder="Enter cinema name" required="required"
                        th:field="*{title}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Адрес</label>
+            <label class="col-sm-2 control-label">Address</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите адрес кинотеатра" required="required"
+                <input class="form-control" placeholder="Enter cinema address" required="required"
                        th:field="*{address}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Телефон</label>
+            <label class="col-sm-2 control-label">Phone</label>
             <div class="col-sm-10">
                 <input class="form-control" data-maxlength="12"
                        maxlength="12" minlength="12"
-                       placeholder="Введите телефон кинотеатра" required="required" th:field="*{phone}" type="number"/>
+                       placeholder="Enter cinema phone" required="required" th:field="*{phone}" type="number"/>
                 <div class="help-block with-errors"></div>
-                <div class="help-block">Формат номера: 380000000000</div>
+                <div class="help-block">Number format: 380000000000</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Электронная почта</label>
+            <label class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите электронную почту кинотеатра"
+                <input class="form-control" placeholder="Enter cinema email"
                        required="required" th:field="*{email}"
                        type="email"/>
                 <div class="help-block with-errors"></div>
@@ -84,7 +84,7 @@
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Внести изменения</button>
+            <button class="btn btn-primary" type="submit">Apply Changes</button>
         </div>
     </form>
 </div>
@@ -99,35 +99,35 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Название</label>
+            <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите название скидки" required="required"
+                <input class="form-control" placeholder="Enter discount name" required="required"
                        th:field="*{title}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Описание</label>
+            <label class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите описание скидки" required="required"
+                <input class="form-control" placeholder="Enter discount description" required="required"
                        th:field="*{description}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Процент</label>
+            <label class="col-sm-2 control-label">Percentage</label>
             <div class="col-sm-10">
                 <input class="form-control" max="100"
-                       min="1" placeholder="Введите процент скидки" required="required" th:field="*{percent}"
+                       min="1" placeholder="Enter discount percentage" required="required" th:field="*{percent}"
                        type="number"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Внести изменения</button>
+            <button class="btn btn-primary" type="submit">Apply Changes</button>
         </div>
     </form>
 </div>
@@ -142,54 +142,54 @@
         </div>
         <div class="col-sm-8 col-sm-offset-2">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Название</label>
-                <input class="form-control" placeholder="Введите название фильма" required="required"
+                <label class="col-sm-2 control-label">Name</label>
+                <input class="form-control" placeholder="Enter film title" required="required"
                        th:field="*{title}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Описание</label>
+                <label class="col-sm-2 control-label">Description</label>
                 <textarea class="form-control" maxlength="600" minlength="30"
-                          placeholder="Введите описание фильма" required="required" style="height: 150px"
+                          placeholder="Enter film description" required="required" style="height: 150px"
                           th:field="*{description}"
                           type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Возрастное ограничение</label>
+                <label class="col-sm-2 control-label">Age Restriction</label>
                 <input class="form-control" max="18"
-                       min="0" placeholder="Введите ограничение по возрасту" required="required"
+                       min="0" placeholder="Enter age restriction" required="required"
                        th:field="*{restriction}"
                        type="number"/>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Длительность</label>
+                <label class="col-sm-2 control-label">Duration</label>
                 <input class="form-control" max="300"
-                       min="20" placeholder="Введите длительность фильма в минутах" required="required"
+                       min="20" placeholder="Enter film duration in minutes" required="required"
                        th:field="*{duration}"
                        type="number"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Год выпуска </label>
-                <input class="form-control" max="2017" min="1900" placeholder="Введите год выпуска фильма"
+                <label class="col-sm-2 control-label">Release Year </label>
+                <input class="form-control" max="2017" min="1900" placeholder="Enter film release year"
                        required="required" th:field="*{year}" type="number"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Страна производства </label>
-                <input class="form-control" min="2" placeholder="Введите страну производства фильма"
+                <label class="col-sm-2 control-label">Country of Production </label>
+                <input class="form-control" min="2" placeholder="Enter film country of production"
                        required="required" th:field="*{country}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Дата начала показа</label>
+                <label class="col-sm-2 control-label">Start Date</label>
                 <input class="form-control" max="2018-01-01"
                        min="2016-01-01" required="required" th:field="*{startFrom}" type="date"/>
                 <div class="help-block with-errors"></div>
@@ -197,11 +197,11 @@
 
 
             <label class="btn btn-default btn-file">
-                Выбрать постер <input name="image" style="display: none;" type="file"/>
+                Choose Poster <input name="image" style="display: none;" type="file"/>
             </label>
 
             <div class="form-group">
-                <button class="btn btn-primary" type="submit">Внести изменения</button>
+                <button class="btn btn-primary" type="submit">Apply Changes</button>
             </div>
         </div>
     </form>
@@ -217,25 +217,25 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Название</label>
+            <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите название жанра" required="required"
+                <input class="form-control" placeholder="Enter genre name" required="required"
                        th:field="*{title}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Описание</label>
+            <label class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Введите описание жанра" required="required"
+                <input class="form-control" placeholder="Enter genre description" required="required"
                        th:field="*{description}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Добавить жанр</button>
+            <button class="btn btn-primary" type="submit">Add Genre</button>
         </div>
     </form>
 </div>
@@ -245,7 +245,7 @@
           th:action="@{/admin/add/hall}" th:object="${hall}">
 
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="sel1">Кинотеатр</label>
+            <label class="col-sm-2 control-label" for="sel1">Cinema</label>
             <select class="form-control" id="sel1" th:field="*{cinemaId}">
                 <option th:each="cinema : ${cinemas}"
                         th:text="${ cinema.title}"
@@ -255,21 +255,21 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Название</label>
-            <input class="form-control" placeholder="Введите название кинозала" required="required"
+            <label class="col-sm-2 control-label">Name</label>
+            <input class="form-control" placeholder="Enter cinema hall name" required="required"
                    th:field="*{title}" type="text"/>
             <div class="help-block with-errors"></div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Описание</label>
-            <input class="form-control" placeholder="Введите описание кинозала" required="required"
+            <label class="col-sm-2 control-label">Description</label>
+            <input class="form-control" placeholder="Enter cinema hall description" required="required"
                    th:field="*{desctiption}" type="text"/>
             <div class="help-block with-errors"></div>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Добавить кинозал</button>
+            <button class="btn btn-primary" type="submit">Add Cinema Hall</button>
         </div>
     </form>
 </div>
@@ -288,26 +288,25 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Номер</label>
-            <input class="form-control" min="1" placeholder="Введите номер ряда"
+            <label class="col-sm-2 control-label">Number</label>
+            <input class="form-control" min="1" placeholder="Enter row number"
                    required="required" th:field="*{rowIndex}" type="number"/>
-            <div class="help-block with-errors" style="color: #ac2925" th:if="${#fields.hasErrors('rowIndex')}">Такой
-                ряд уже
-                существует
+            <div class="help-block with-errors" style="color: #ac2925" th:if="${#fields.hasErrors('rowIndex')}">This row
+                already exists
             </div>
 
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Количество мест</label>
+            <label class="col-sm-2 control-label">Number of Seats</label>
 
             <input class="form-control" max="100" min="1"
-                   placeholder="Введите количество мест" required="required" th:field="*{seats}" type="number"/>
+                   placeholder="Enter number of seats" required="required" th:field="*{seats}" type="number"/>
             <div class="help-block with-errors"></div>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Добавить ряд</button>
+            <button class="btn btn-primary" type="submit">Add Row</button>
         </div>
     </form>
 </div>
@@ -333,36 +332,36 @@
 
         <div class="col-sm-8 col-sm-offset-2">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Логин</label>
-                <input class="form-control" placeholder="Введите логин" required="required"
+                <label class="col-sm-2 control-label">Username</label>
+                <input class="form-control" placeholder="Enter username" required="required"
                        th:field="*{username}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Имя</label>
-                <input class="form-control" placeholder="Введите имя" required="required"
+                <label class="col-sm-2 control-label">First Name</label>
+                <input class="form-control" placeholder="Enter first name" required="required"
                        th:field="*{firstName}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Фамилия</label>
-                <input class="form-control" placeholder="Введите фамилию" required="required"
+                <label class="col-sm-2 control-label">Last Name</label>
+                <input class="form-control" placeholder="Enter last name" required="required"
                        th:field="*{lastName}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Телефон</label>
+                <label class="col-sm-2 control-label">Phone</label>
                 <input class="form-control" maxlength="13" minlength="13"
-                       placeholder="Введите номер телефона" required="required" th:field="*{telephone}" type="text"/>
+                       placeholder="Enter phone number" required="required" th:field="*{telephone}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">Email</label>
-                <input class="form-control" placeholder="Введите email" required="required"
+                <input class="form-control" placeholder="Enter email" required="required"
                        th:field="*{email}" type="text"/>
                 <div class="help-block with-errors"></div>
             </div>
@@ -377,7 +376,7 @@
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Внести изменения</button>
+            <button class="btn btn-primary" type="submit">Apply Changes</button>
         </div>
 
     </form>
@@ -392,12 +391,12 @@
                    type="hidden"/>
         </div>
 
-        <div class="help-block" style="color: #ac2925" th:if="${#fields.hasErrors('Date')}">В это время уже проводится
-            сеанс
+        <div class="help-block" style="color: #ac2925" th:if="${#fields.hasErrors('Date')}">A session is already
+            scheduled at this time
         </div>
 
         <div class="form-group">
-            <label for="sel2">Кинозал</label>
+            <label for="sel2">Cinema Hall</label>
             <select class="form-control" id="sel2" required="required" th:field="*{hallId}">
                 <option th:each="hall : ${allHalls}"
                         th:text="${hall.title}"
@@ -406,7 +405,7 @@
         </div>
 
         <div class="form-group">
-            <label for="sel1">Фильм</label>
+            <label for="sel1">Film</label>
             <select class="form-control" id="sel1" required="required" th:field="*{filmId}">
                 <option th:each="film : ${allFilms}"
                         th:text="${film.title}"
@@ -420,23 +419,23 @@
         </div>
 
         <div class="form-group">
-            <label for="sel4">Дата</label>
+            <label for="sel4">Date</label>
             <input class="form-control" id="sel4" max="2018-01-01"
-                   min="2016-12-21" oninput="deleteT()" placeholder="Введите дату и время сеанса" required="required"
+                   min="2016-12-21" oninput="deleteT()" placeholder="Enter session date and time" required="required"
                    type="datetime-local"/>
             <div class="help-block with-errors"></div>
         </div>
 
         <div class="form-group">
-            <label for="sel5">Цена</label>
+            <label for="sel5">Price</label>
             <input class="form-control" id="sel5" max="1000"
-                   min="0" name="price" placeholder="Введите цену билетов" required="required" type="number"/>
+                   min="0" name="price" placeholder="Enter ticket price" required="required" type="number"/>
             <div class="help-block with-errors"></div>
         </div>
 
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Добавить сеанс</button>
+            <button class="btn btn-primary" type="submit">Add Session</button>
         </div>
 
     </form>

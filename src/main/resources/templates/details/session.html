@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Сеансы</title>
+    <title>Sessions</title>
     <meta content="width=device-width, initial-scale=2" name="viewport"/>
     <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
     <script src="/public/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
@@ -34,19 +34,19 @@
         <img style="width: 400px;" th:src="@{/img/{id}.jpg(id = ${filmSession.film.filmId})}"/>
     </div>
     <div class="col-sm-4">
-        <label>Кинотеатр: </label>
+        <label>Cinema: </label>
         <h5 th:text="${filmSession.hall.cinema.title}"></h5>
-        <label>Кинозал: </label>
+        <label>Cinema Hall: </label>
         <h5 th:text="${filmSession.hall.title}"></h5>
-        <label>Фильм: </label>
+        <label>Film: </label>
         <a th:href="@{/details/film (filmId = ${filmSession.film.filmId})}"><h5
                 th:text="${filmSession.film.title}"></h5></a>
-        <label>Возрастное ограничение: </label>
+        <label>Age Restriction: </label>
         <h5 th:text="${filmSession.film.restriction} + '+'"></h5>
-        <label>Время: </label>
+        <label>Time: </label>
         <h5 th:text="${filmSession.date}"></h5>
         <a th:href="@{/tickets (filmSessionId = ${filmSession.filmSessionId})}">
-            <button class="btn btn-default" type="button">Купить билеты</button>
+            <button class="btn btn-default" type="button">Buy Tickets</button>
         </a>
 
     </div>

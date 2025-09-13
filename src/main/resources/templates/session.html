@@ -39,7 +39,7 @@
             <thead>
             <tr>
                 <th>Cinema</th>
-                <th>Movie theater</th>
+                <th>Cinema Hall</th>
                 <th>Film</th>
                 <th>Date</th>
                 <th></th>
@@ -56,7 +56,7 @@
                 <td th:text="${filmSession.date}"></td>
                 <td>
                     <a th:href="@{/tickets (filmSessionId = ${filmSession.filmSessionId})}">
-                        <button class="btn btn-default" type="button">Купить билеты</button>
+                        <button class="btn btn-default" type="button">Buy Tickets</button>
                     </a>
                 </td>
 

@@ -37,6 +37,8 @@ dependencies {
 // https://mvnrepository.com/artifact/io.github.jpenren/thymeleaf-spring-data-dialect
     implementation ('io.github.jpenren:thymeleaf-spring-data-dialect:3.6.0')
 
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
+
     runtimeOnly 'com.mysql:mysql-connector-j'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

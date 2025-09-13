@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Залы</title>
+    <title>Halls</title>
     <meta content="width=device-width, initial-scale=2" name="viewport"/>
     <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
     <script src="/public/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
@@ -33,12 +33,12 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Кинотеатр</th>
-                <th>Кинозал</th>
-                <th>Описание</th>
-                <th>Ряды</th>
-                <th>Редактировать</th>
-                <th>Удалить</th>
+                <th>Cinema</th>
+                <th>Cinema Hall</th>
+                <th>Description</th>
+                <th>Rows</th>
+                <th>Edit</th>
+                <th>Delete</th>
 
             </tr>
             </thead>
@@ -49,17 +49,17 @@
                 <td th:text="${hall.desctiption}"></td>
                 <td>
                     <a th:href="@{/admin/row(hallId = ${hall.hallId}, cinemaId= ${hall.cinemaId})}">
-                        <button class="btn btn-default" type="button">Ряды</button>
+                        <button class="btn btn-default" type="button">Rows</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/edit/hall(hallId = ${hall.hallId})}">
-                        <button class="btn btn-default" type="button">Редактировать</button>
+                        <button class="btn btn-default" type="button">Edit</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/delete/hall (hallId = ${hall.hallId})}">
-                        <button class="btn btn-default" type="button">Удалить</button>
+                        <button class="btn btn-default" type="button">Delete</button>
                     </a>
                 </td>
                 </tbody>
@@ -68,7 +68,7 @@
     </div>
     <br/>
     <a href="/admin/add/cinema.html" th:href="@{/admin/add/hall}">
-        <button class="btn btn-default" type="button">Новый зал</button>
+        <button class="btn btn-default" type="button">New Hall</button>
     </a>
 </div>
 </body>

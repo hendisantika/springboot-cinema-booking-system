@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Добавить жанры в фильм</title>
+    <title>Add Genres to Film</title>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=2" name="viewport"/>
     <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
@@ -68,8 +68,8 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Название</th>
-                    <th>Описание</th>
+                    <th>Name</th>
+                    <th>Description</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -87,10 +87,10 @@
                     </td>
                     </tbody>
                 </th:block>
-                <h4><strong>Фильм:</strong></h4>
+                <h4><strong>Film:</strong></h4>
                 <h4 th:text="${film.filmTittle}"></h4>
                 <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Добавить жанры</button>
+                    <button class="btn btn-primary" type="submit">Add Genres</button>
                 </div>
             </table>
         </form>

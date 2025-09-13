@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Фильмы</title>
+    <title>Films</title>
     <meta content="width=device-width, initial-scale=2" name="viewport"/>
     <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
     <script src="/public/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
@@ -32,11 +32,11 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Название</th>
-                <th>Длительность</th>
-                <th>Год выпуска</th>
-                <th>Страна производства</th>
-                <th>Начинается с</th>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Release Year</th>
+                <th>Country of Production</th>
+                <th>Starts From</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -53,22 +53,22 @@
                 <td th:text="${film.startFrom}"></td>
                 <td>
                     <a th:href="@{/admin/edit/film(filmId = ${film.filmId})}">
-                        <button class="btn btn-default" type="button">Редактировать</button>
+                        <button class="btn btn-default" type="button">Edit</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/delete/film (filmId = ${film.filmId})}">
-                        <button class="btn btn-default" type="button">Удалить</button>
+                        <button class="btn btn-default" type="button">Delete</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/add/actor_to_film (filmId = ${film.filmId})}">
-                        <button class="btn btn-default" type="button">Добавить актеров</button>
+                        <button class="btn btn-default" type="button">Add Actors</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/add/genre_to_film (filmId = ${film.filmId})}">
-                        <button class="btn btn-default" type="button">Добавить жанры</button>
+                        <button class="btn btn-default" type="button">Add Genres</button>
                     </a>
                 </td>
                 </tbody>
@@ -77,7 +77,7 @@
     </div>
     <br/>
     <a href="/admin/add/cinema.html" th:href="@{/admin/add/film}">
-        <button class="btn btn-default" type="button">Новый фильм</button>
+        <button class="btn btn-default" type="button">New Film</button>
     </a>
 </div>
 </body>

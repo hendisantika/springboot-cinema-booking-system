@@ -35,7 +35,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" th:href="@{/}">the main</a>
+            <a class="navbar-brand" href="/" th:href="@{/}">Home</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -54,12 +54,12 @@
                     </form>
                     <a onclick="document.forms['logoutForm'].submit()" style="cursor: pointer"><span
                             class="glyphicon glyphicon-log-out"
-                    ></span> Выход</a>
+                    ></span> Logout</a>
                 </li>
                 <li sec:authorize="isAnonymous()"><a th:href="@{/login}"><span class="glyphicon glyphicon-user"></span>
-                    To come in</a></li>
+                    Login</a></li>
                 <li sec:authorize="isAnonymous()"><a th:href="@{/registration}"><span
-                        class="glyphicon glyphicon-user"></span> check in</a></li>
+                        class="glyphicon glyphicon-user"></span> Register</a></li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/admin/}"><span
                         class="glyphicon glyphicon-user"></span> Admin panel</a></li>
             </ul>

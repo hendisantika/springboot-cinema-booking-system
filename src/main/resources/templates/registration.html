@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>check in</title>
+    <title>Registration</title>
     <script src="/js/jquery.js" th:src="@{/js/jquery.js}"></script>
     <script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
     <script src="/js/validator.js" th:src="@{/js/validator.js}"></script>
@@ -18,7 +18,7 @@
         <div class="main-login main-center">
             <form action="#" class="form-horizontal" data-toggle="validator" method="post" th:action="@{/registration}"
                   th:object="${userForm}">
-                <div class="help-block" style="color: #ac2925" th:if="${#fields.hasErrors()}">Пользователь с таким
+                <div class="help-block" style="color: #ac2925" th:if="${#fields.hasErrors()}">User with this
                     login already exists
                 </div>
                 <div class="form-group">
@@ -32,15 +32,15 @@
                         </div>
                     </div>
                     <div class="help-block with-errors"></div>
-                    <div class="help-block">Symbols of the Russian or English alphabet</div>
+                    <div class="help-block">Only English alphabet letters allowed</div>
                 </div>
                 <div class="form-group">
-                    <label class="cols-sm-2 control-label" for="name">Surname</label>
+                    <label class="cols-sm-2 control-label" for="name">Last Name</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i aria-hidden="true" class="glyphicon glyphicon-user"></i></span>
                             <input class="form-control" id="lastName" maxlength="32" minlength="3"
-                                   name="name" pattern="[a-z, а-я, А-Я, A-Z]{1,}"
+                                   name="name" pattern="[a-zA-Z ]{1,}"
                                    placeholder="Please enter your last name"
                                    required="required"
                                    th:field="*{lastName}"/>

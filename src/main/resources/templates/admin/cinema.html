@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Кинотеатры</title>
+    <title>Cinemas</title>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=2" name="viewport"/>
     <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
@@ -34,10 +34,10 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Название</th>
-                <th>Адрес</th>
-                <th>Телефон</th>
-                <th>Еmail</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -53,22 +53,22 @@
                 <td th:text="${cinema.email}"></td>
                 <td>
                     <a th:href="@{/admin/edit/cinema(cinemaId= ${cinema.cinemaId})}">
-                        <button class="btn btn-default" type="button">Редактировать</button>
+                        <button class="btn btn-default" type="button">Edit</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/delete/cinema (cinemaId = ${cinema.cinemaId})}">
-                        <button class="btn btn-default" type="button">Удалить</button>
+                        <button class="btn btn-default" type="button">Delete</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/hall(cinemaId = ${cinema.cinemaId})}">
-                        <button class="btn btn-default" type="button">Залы</button>
+                        <button class="btn btn-default" type="button">Cinema Halls</button>
                     </a>
                 </td>
                 <td>
                     <a th:href="@{/admin/session(cinemaId = ${cinema.cinemaId})}">
-                        <button class="btn btn-default" type="button">Сеансы</button>
+                        <button class="btn btn-default" type="button">Sessions</button>
                     </a>
                 </td>
                 </tbody>
@@ -78,7 +78,7 @@
     <br/>
 
     <a href="/admin/add/cinema.html" th:href="@{/admin/add/cinema}">
-        <button class="btn btn-default" type="button">Новый кинотеатр</button>
+        <button class="btn btn-default" type="button">New Cinema</button>
     </a>
 </div>
 

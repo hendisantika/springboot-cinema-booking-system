@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Актеры</title>
+    <title>Actors</title>
     <meta content="width=device-width, initial-scale=2" name="viewport"/>
     <script src="/public/js/jquery.js" th:src="@{/js/jquery.js}"></script>
     <script src="/public/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
@@ -30,11 +30,11 @@
 
 <div class="container">
 
-    <h3><strong>Актер: </strong></h3>
+    <h3><strong>Actor: </strong></h3>
     <h4 id="firstName" th:text="${actor.firstName} + ' ' +  ${actor.lastName}"></h4>
 
 
-    <h3><strong>Фильмы:</strong></h3>
+    <h3><strong>Films:</strong></h3>
     <div class="col-lg-4">
         <div class="list-group">
             <th:block th:each="film:${actor.films}">
