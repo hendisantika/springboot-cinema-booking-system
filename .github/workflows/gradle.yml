@@ -20,6 +20,22 @@ jobs:
     permissions:
       contents: read
 
+    services:
+      mysql:
+        image: mysql:9.4.0
+        env:
+          MYSQL_DATABASE: cinema_db
+          MYSQL_USER: yuji
+          MYSQL_PASSWORD: 53cret
+          MYSQL_ROOT_PASSWORD: 53cret
+        ports:
+          - 3307:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -p53cret"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
     steps:
     - uses: actions/checkout@v7
     - name: Set up JDK 25
