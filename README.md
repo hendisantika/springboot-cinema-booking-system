@@ -3,6 +3,8 @@
 A comprehensive cinema booking system built with Spring Boot, featuring cinema management, film scheduling, ticket
 booking, and user administration.
 
+![Homepage screenshot](screenshots/homepage.jpg)
+
 ## Features
 
 ### Core Functionality
@@ -25,7 +27,7 @@ booking, and user administration.
 
 ## Technology Stack
 
-- **Backend**: Spring Boot 3.5.5 with Java 21
+- **Backend**: Spring Boot 4.1.1 with Java 25
 - **Database**: MySQL 9.4.0
 - **Template Engine**: Thymeleaf with Spring Security integration
 - **ORM**: Spring Data JPA with Hibernate
@@ -61,7 +63,7 @@ The application follows a layered architecture pattern:
 
 ### Prerequisites
 
-- Java 21 or higher
+- Java 25 or higher
 - Docker and Docker Compose
 - Gradle (included via wrapper)
 
@@ -125,24 +127,32 @@ src/
 
 ### Public Endpoints
 
-- `/` - Home page with film listings
+- `/` - Home page
 - `/login` - User authentication
 - `/registration` - User registration
-- `/films` - Browse available films
-- `/cinemas` - Browse cinema locations
+- `/film` - Browse available films
+- `/cinema` - Browse cinema locations
+- `/genre` - Browse genres
+- `/actor` - Browse actors
+- `/discount` - Browse discounts
+- `/session` - Browse film sessions
+- `/details/film`, `/details/actor`, `/details/session` - Detail views
 
 ### User Endpoints
 
 - `/tickets` - View user's booked tickets
-- `/book/{sessionId}` - Book tickets for a session
+- `/user` - User profile
 
 ### Admin Endpoints
 
-- `/admin` - Admin dashboard
-- `/admin/films` - Manage films
-- `/admin/cinemas` - Manage cinemas
-- `/admin/sessions` - Manage film sessions
-- `/admin/users` - Manage users
+- `/admin/` - Admin dashboard
+- `/admin/film` - Manage films
+- `/admin/cinema` - Manage cinemas
+- `/admin/hall` - Manage halls
+- `/admin/session` - Manage film sessions
+- `/admin/ticket` - Manage tickets
+- `/admin/user` - Manage users
+- `/admin/genre`, `/admin/actor`, `/admin/discount` - Manage genres, actors, and discounts
 
 ## Development
 
